@@ -1,0 +1,17 @@
+._checkbox {
+    display: none;
+}
+
+.checkbox {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    background: #fff;
+    border: 2px #ddd solid;
+    margin-right: 4px;
+}
+
+.checkboxActive {
+    border-color: purple;
+    background: purple;
+}
