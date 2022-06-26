@@ -25,12 +25,12 @@ export const PaginationCards = () => {
         alignItems: "center"
     }}>
         <Pagination count={numberOfPages} page={page} color="primary" onChange={changePageHandler}/>
-        <span>Show</span>
-        <select value={pageCount} onChange={changePageCountHandler}>
-            <option>5</option>
-            <option>10</option>
-        </select>
-        <span>per Page</span>
+        {/*<span>Show</span>*/}
+        {/*<select value={pageCount} onChange={changePageCountHandler}>*/}
+        {/*    <option>5</option>*/}
+        {/*    <option>10</option>*/}
+        {/*</select>*/}
+        {/*<span>per Page</span>*/}
     </div>
 
 }
