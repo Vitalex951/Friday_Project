@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Friday_Project/static/css/main.5324d589.css",
-    "main.js": "/Friday_Project/static/js/main.e16cacaf.js",
+    "main.css": "/Friday_Project/static/css/main.9717cfa4.css",
+    "main.js": "/Friday_Project/static/js/main.c3367bfa.js",
     "static/js/787.64a3f69d.chunk.js": "/Friday_Project/static/js/787.64a3f69d.chunk.js",
     "static/media/user-not-found.png": "/Friday_Project/static/media/user-not-found.207ff6cc13ae72626606.png",
     "static/media/sentMail.svg": "/Friday_Project/static/media/sentMail.38fb2aa49fa0d281a52644d612530669.svg",
     "index.html": "/Friday_Project/index.html",
-    "main.5324d589.css.map": "/Friday_Project/static/css/main.5324d589.css.map",
-    "main.e16cacaf.js.map": "/Friday_Project/static/js/main.e16cacaf.js.map",
+    "main.9717cfa4.css.map": "/Friday_Project/static/css/main.9717cfa4.css.map",
+    "main.c3367bfa.js.map": "/Friday_Project/static/js/main.c3367bfa.js.map",
     "787.64a3f69d.chunk.js.map": "/Friday_Project/static/js/787.64a3f69d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5324d589.css",
-    "static/js/main.e16cacaf.js"
+    "static/css/main.9717cfa4.css",
+    "static/js/main.c3367bfa.js"
   ]
 }
