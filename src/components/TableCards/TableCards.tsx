@@ -26,6 +26,8 @@ import {Preloader} from "../Preloader/Preloader";
 import {DeleteModal} from "../Modals/DeleteModal";
 import {UniverseModalWindow} from "../UniverseModal/UniverseModalWindow";
 import {EditCardModal} from "../Modals/EditCardModal";
+import IconButton from "@mui/material/IconButton";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 
 const colums = ['Question', 'Answer', 'Last Update', 'Grade']
@@ -96,79 +98,83 @@ export const TableCards = () => {
     }
 
     return (
-        <div>
-            <div className={style.back}>
-                {cardStatus !== 'loading'
-                    ? <div className={style.back}>
-                        <button onClick={() => navigate(PATH.PACK_LIST)}>Back</button>
-                        <AddCard/>
-                    </div>
-                    : <Preloader isActive={cardStatus === 'loading'}/>}
-            </div>
-            <TableContainer style={{width: 850, margin: '0 auto',}} component={Paper}>
-                <Table sx={{width: 850}} aria-label='simple table'>
-                    <TableHead>
-                        <TableRow sx={{backgroundColor: '#ECECF9'}}>
-                            {
-                                colums && colums.map((el, i) => {
-                                    return (el === 'Last Update' ?
-                                        <TableCell className={style.click} key={`${el}_${i}`} onClick={changeSortHandler}
-                                                   align={"center"}>
-                                            {el}<AiOutlineArrowUp
-                                            style={sortBy === 'asc' ? {transform: 'rotate(180deg)'} : {}}/>
-                                        </TableCell> : <TableCell key={`${el}_${i}`} align={"center"}>{el}</TableCell>)
-                                })
-                            }
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows && rows.map((row: CardType) => (
-                            <TableRow
-                                key={row._id}
-                                sx={{
-                                    '&:last-child td, &:last-child th': {border: ''},
-                                    '&:nth-of-type(2)': {backgroundColor: '#F8F7FD'}
-                                }}
-                            >
-                                <TableCell align={"center"} component='th' scope='row'>
-                                    {row.question}
-                                </TableCell>
-                                <TableCell align='center'>{row.answer}</TableCell>
-                                <TableCell align='center'>{row.updated}</TableCell>
-                                <TableCell align='center'><Rating name="read-only" value={row.grade}
-                                                                  readOnly/></TableCell>
-                                <TableCell align='center'>
-                                    {myId === row.user_id &&
-                                        <button
-                                            onClick={() => onClickEditHandler(row._id, row.question, row.answer)}>Edit</button>}
-                                    {myId === row.user_id &&
-                                        <button onClick={() => onClickDeleteHandler(row._id)}>Delete</button>}
-                                </TableCell>
+        <div className={style.container}>
+            <div className={style.main}>
+                <div className={style.back}>
+                    {cardStatus !== 'loading'
+                        ? <div className={style.backBtns}>
+                            <IconButton  onClick={() => navigate(PATH.PACK_LIST)} aria-label="Example">
+                                <KeyboardBackspaceIcon fontSize={'small'}/>
+                            </IconButton>
+                            <AddCard/>
+                        </div>
+                        : <Preloader isActive={cardStatus === 'loading'}/>}
+                </div>
+                <TableContainer style={{width: 850, margin: '0 auto',}} component={Paper}>
+                    <Table sx={{width: 850}} aria-label='simple table'>
+                        <TableHead>
+                            <TableRow sx={{backgroundColor: '#ECECF9'}}>
+                                {
+                                    colums && colums.map((el, i) => {
+                                        return (el === 'Last Update' ?
+                                            <TableCell className={style.click} key={`${el}_${i}`}
+                                                       onClick={changeSortHandler}
+                                                       align={"center"}>
+                                                {el}<AiOutlineArrowUp
+                                                style={sortBy === 'asc' ? {transform: 'rotate(180deg)'} : {}}/>
+                                            </TableCell> : <TableCell key={`${el}_${i}`} align={"center"}>{el}</TableCell>)
+                                    })
+                                }
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <UniverseModalWindow isActive={activeModal} setActive={setActiveModal}>
-                {modalMod === "delete" &&
-                    <DeleteModal
-                        packId={packId}
-                        onClickYesHandler={onClickYesDeleteHandler}
-                        onClickNoHandler={onClickNoDeleteHandler}
-                    />
-                }
-                {modalMod === "edit" &&
-                    <EditCardModal
-                        packId={packId}
-                        answer={answer}
-                        question={question}
-                        onClickSaveHandler={onClickSaveUpdateHandler}
-                        onClickCancelHandler={onClickCancelUpdateHandler}
-                        setAnswer={setAnswer}
-                        setQuestion={setQuestion}
-                    />
-                }
-            </UniverseModalWindow>
+                        </TableHead>
+                        <TableBody>
+                            {rows && rows.map((row: CardType) => (
+                                <TableRow
+                                    key={row._id}
+                                    sx={{
+                                        '&:last-child td, &:last-child th': {border: ''},
+                                        '&:nth-of-type(2)': {backgroundColor: '#F8F7FD'}
+                                    }}
+                                >
+                                    <TableCell align={"center"} component='th' scope='row'>
+                                        {row.question}
+                                    </TableCell>
+                                    <TableCell align='center'>{row.answer}</TableCell>
+                                    <TableCell align='center'>{row.updated}</TableCell>
+                                    <TableCell align='center'><Rating name="read-only" value={row.grade}
+                                                                      readOnly/></TableCell>
+                                    <TableCell align='center'>
+                                        {myId === row.user_id &&
+                                            <button
+                                                onClick={() => onClickEditHandler(row._id, row.question, row.answer)}>Edit</button>}
+                                        {myId === row.user_id &&
+                                            <button onClick={() => onClickDeleteHandler(row._id)}>Delete</button>}
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <UniverseModalWindow isActive={activeModal} setActive={setActiveModal}>
+                    {modalMod === "delete" &&
+                        <DeleteModal
+                            packId={packId}
+                            onClickYesHandler={onClickYesDeleteHandler}
+                            onClickNoHandler={onClickNoDeleteHandler}
+                        />
+                    }
+                    {modalMod === "edit" &&
+                        <EditCardModal
+                            packId={packId}
+                            answer={answer}
+                            question={question}
+                            onClickSaveHandler={onClickSaveUpdateHandler}
+                            onClickCancelHandler={onClickCancelUpdateHandler}
+                            setAnswer={setAnswer}
+                            setQuestion={setQuestion}
+                        />
+                    }
+                </UniverseModalWindow></div>
         </div>
     )
 }

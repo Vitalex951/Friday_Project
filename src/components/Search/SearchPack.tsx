@@ -2,6 +2,7 @@ import React, {ChangeEvent, useState} from "react";
 import {DebounceInput} from "react-debounce-input";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {getCardPackTC, searchPackAC} from "../../redux/reducers/packsCardReducer";
+import style from './SeatchPack.module.css'
 
 
 export const SearchPack = () => {
@@ -20,6 +21,7 @@ export const SearchPack = () => {
     return (
         <div>
             <DebounceInput
+                className={style.debounceInput}
                 minLength={2}
                 debounceTimeout={2000}
                 placeholder={"Search Pack"}

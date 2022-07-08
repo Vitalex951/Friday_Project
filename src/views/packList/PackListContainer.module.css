@@ -9,7 +9,9 @@
     max-width: 1200px;
     margin: 0 auto;
     border-radius: 10px;
-
+    border: 2px solid black;
+    background: linear-gradient(90deg, #aea4e3, #d3ffe8);
+    box-shadow: 0 5px 15px 5px rgb(0 0 0 / 38%);
 }
 
 .tableContainer {
@@ -35,6 +37,8 @@
 .search {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
 }
 
 .tablePacks {
@@ -46,4 +50,5 @@
 
 .pagination {
     flex: 1 1 auto;
+    margin-bottom: 10px;
 }

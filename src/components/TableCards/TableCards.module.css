@@ -7,11 +7,40 @@
 }
 
 .back {
+}
+.backBtns {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-bottom: 10px;
 }
 
 .back button {
     padding: 15px
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.backBtn {
+    padding: 5px 10px;
+    color: #21268F;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #D7D8EF;
+    border-radius: 10px;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.main{
+    margin-top: 20px;
+    max-width: 900px;
+    padding: 20px;
+    border: 2px solid black;
+    background: linear-gradient(90deg, #aea4e3, #d3ffe8);
+    box-shadow: 0 5px 15px 5px rgb(0 0 0 / 38%);
+    border-radius: 10px;
 }

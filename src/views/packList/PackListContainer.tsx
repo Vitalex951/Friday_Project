@@ -61,7 +61,8 @@ export const PackListContainer = () => {
                 <div className={style.mainContent}>
                     <h2>Pack List</h2>
 
-                    <div className={style.search}><SearchPack/>
+                    <div className={style.search}>
+                        <SearchPack/>
                         <AddPack/>
                     </div>
 
@@ -72,8 +73,8 @@ export const PackListContainer = () => {
                             {/*{packsStatus === 'loading' && <Preloader/>}*/}
                             {/*{packsStatus !== 'loading' && (<TablePacks rows={packs}/>)}*/}
                             <TablePacks rows={packs}/>
-
                         </div>
+
                     </div>
 
                     <div className={style.pagination}>
