@@ -16,8 +16,8 @@ export type valuesFromFormikType = {
 }
 export const LoginPage = () => {
     const initialState: valuesFromFormikType = {
-        email: '',
-        password: '',
+        email: 'Vitalex951@gmail.com',
+        password: '123456789',
         rememberMe: false
     }
     const isLogged = useAppSelector(state => state.login.isLogged)
